@@ -37,9 +37,4 @@ fi
 /usr/bin/pipewire &
 /usr/bin/pipewire-pulse &
 /usr/bin/wireplumber &
-
 xbanish &
-xrandr --output DP-0 --mode 2560x1440 --output HDMI-0 --mode 1920x1080 --left-of DP-0 &
-feh --bg-fill Pictures/wallhaven-8586my.png &
-picom &
-exec dwm
