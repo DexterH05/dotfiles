@@ -1,0 +1,35 @@
+Config { overrideRedirect = False
+       , font     = "xft:0xProto Nerd Font:pixelsize=12"
+       , additionalFonts = [ "xft:Mononoki Nerd Font Bold:pixelsize=15:antialias=true:hinting=true"
+                           , "xft:FontAwesome:pixelsize=13"
+                           ]
+       , bgColor  = "#5f5f5f"
+       , fgColor  = "#FFF1EE"
+       , position = Static { xpos = 1930, ypos = 10, width = 2540, height = 40 }
+       , alpha    = 50
+       , commands = [ Run Cpu
+                        [ "-L", "-1"
+                        , "-H", "50"
+                        , "--normal", "#7efd71"
+                        , "--high"  , "#fe5e5e"
+                        , "--template", "<fc=#cc6666>Cpu <fn=1>: : : : : :</fn> <total>%</fc>"
+                        ] 10
+                    , Run Memory [ "--template", "<fc=#f0c674>Mem <fn=1>: : : : : :</fn> <usedratio>%</fc>"
+                                 , "-L", "-1"
+                                 , "-H", "60"
+                                 , "--normal", "#7efd71"
+                                 , "--high", "#fe5e5e"
+                                 ] 10
+                    , Run Swap [ "--template", "<fc=#81a2be>Swap <fn=1>: : : : : :</fn> <usedratio>%</fc>"
+                               , "-L", "-1"
+                               , "-H", "30"
+                               , "--normal", "#7efd71"
+                               , "--high", "#fe5e5e"
+                               ] 10
+                    , Run Date "<fc=#959EFF>%a</fc> <fn=1>: : : : : :</fn> <fc=#e7ff95>%d</fc>-<fc=#b2ff95>%m</fc>-<fc=#95ffad>%Y</fc> <fn=1>: : : : : :</fn> <fc=#8be9fd>%H:%M</fc> " "date" 10
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "   <fc=#8abeb7><fn=1></fn></fc> <fc=#686868><fn=1>│</fn></fc> %XMonadLog% }{ <fc=#686868><fn=1>│</fn></fc> %cpu% <fc=#686868><fn=1>│</fn></fc> %memory%  |  %swap% <fc=#686868><fn=1>│</fn></fc> %date% "
+       }
