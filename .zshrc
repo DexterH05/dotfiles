@@ -75,3 +75,4 @@ bindkey -e
 
 # PATH
 export PATH=$PATH:$HOME/.config/languages/zig-lang
+export PATH=$PATH:$HOME/.cargo/bin
